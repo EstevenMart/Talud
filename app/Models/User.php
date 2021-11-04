@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table ="users";
+
+    function obras(){
+        return $this->hasMany(obra::class);
+    }
+
+    function rols(){
+        return $this->belongsTo(rol::class);
+    }
+
 }
