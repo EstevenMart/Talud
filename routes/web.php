@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MaterialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Material ruta
+Route::get('/materials' , [MaterialController::class , "show"]);
+
+Route::get('/material/delete/{id}', [ProductController::class, 'delete'])->name('material.delete');
+
+Route::get('/material/form/{id?}', [ProductController::class, 'form'])->name('material.form');
+
+Route::post('/material/save', [ProductController::class, 'save'])->name('material.save');
+
